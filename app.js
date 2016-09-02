@@ -55,19 +55,19 @@ app.use(function(err, req, res, next) {
 /**
  * Module dependencies.
  */
-var io = require("socket.io").listen(10086);
-
+var io = require("socket.io").listen(12450);
 io.sockets.on('connection', function(socket){
+  var hs = socket.handshake;
+
   socket.on('register', function(msg){
     console.log("222")
-    socket.emit('register',broker.register(msg))
+    console.log(socket)
+    socket.emit('register1',broker.register(msg))
   });
 
   socket.on('statuson', function(msg){
     broker.statuson(msg)
   });
-
-
 });
 
 
