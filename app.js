@@ -1,5 +1,4 @@
 var express = require('express');
-var mongoose = require('mongoose');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -7,10 +6,8 @@ var bodyParser = require('body-parser');
 // var mime=require('config/mime');
 const globby = require('globby');
 var xattr = require('fs-xattr');
-var MTObj = require('./middleware/memtree');
 const uuid = require('node-uuid');
 var schedule = require('node-schedule');
-var MediaObj = require('./middleware/mediaobj');
 var spawnSync = require('child_process').spawnSync;
 /** Express **/
 var app = express();
@@ -26,48 +23,18 @@ if (env !== 'production' && env !== 'development' && env !== 'test') {
 } else {
   console.log('NODE_ENV is set to ' + env);
 }
-
+var broker = require("./lib/broker")
+global.storage = require('./lib/storage')
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(auth.init());
 /** Routeing Begins **/
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', require('./routes/index'));
+//app.use(express.static(path.join(__dirname, 'public')));
 app.use('/register', require('./routes/register'));
 /** Routing Ends **/
-//app.use(fileUpload());
-
-
-// app.use(auth.jwt(),function(req, res){
-//   var pathname = url.parse(req.url).pathname;
-//   var realPath = "/mnt" + pathname;
-//   console.log(realPath);
-//   fs.exists(realPath, function (exists) {
-//     if (!exists) {
-//       console.log('111');
-//       res.writeHead(404, {'Content-Type': 'text/plain'});
-//       res.write("This request URL " + pathname + " was not found on this server.");
-//       res.end();
-//     } 
-//     else {
-//       console.log('222');
-//       fs.readFile(realPath, "binary", function(err, file) {
-//           if (err) {
-//               res.writeHead(500, {'Content-Type': 'tex t/plain'});
-//               res.end(err);
-//           } else {
-//               res.writeHead(200, {'Content-Type': 'text/html'});
-//               res.write(file, "binary");
-//               res.end();
-//           }
-//        });
-//     }
-//   });
-// });
 
 
 // catch 404 and forward to error handler
@@ -88,6 +55,21 @@ app.use(function(err, req, res, next) {
 /**
  * Module dependencies.
  */
+var io = require("socket.io").listen(10086);
+
+io.sockets.on('connection', function(socket){
+  socket.on('register', function(msg){
+    console.log("222")
+    socket.emit('register',broker.register(msg))
+  });
+
+  socket.on('statuson', function(msg){
+    broker.statuson(msg)
+  });
+
+
+});
+
 
 // var app = require('../build/app');
 var debug = require('debug')('myapp:server');

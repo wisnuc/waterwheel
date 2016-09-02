@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node build/app.js",
     "build": "babel src --out-dir build",
-    "devel": "nodemon --exec babel-node src/app.js",
+    "devel": "nodemon --exec babel-node app.js",
     "test": "mocha --compilers js:babel-core/register --recursive test",
     "perf": "mocha --compilers js:babel-core/register --recursive perf",
     "test-server": "NODE_PATH=. NODE_ENV=test nodemon ./bin/www",
@@ -19,6 +19,7 @@
     "body-parser": "~1.13.2",
     "connect-timeout": "^1.7.0",
     "debug": "~2.2.0",
+    "encoding": "^0.1.12",
     "exif": "^0.6.0",
     "express": "^4.13.4",
     "file-type": "^3.8.0",
@@ -41,6 +42,7 @@
     "serve-favicon": "~2.3.0",
     "sha256": "^0.2.0",
     "socket.io": "^1.4.5",
+    "ursa": "^0.9.4",
     "validator": "^5.1.0"
   },
   "devDependencies": {
