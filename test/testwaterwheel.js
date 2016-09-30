@@ -65,8 +65,6 @@ describe('waterwheel', function() {
         expect(newwaterwheel.tanks.length).to.equal(1)
         expect(newwaterwheel.tanks[0]).deep.to.equal(newtank)
         newwaterwheel.delTank(newwaterwheel.tanks[0].uuid)
-        console.log("-----")
-        console.log(newwaterwheel)
         expect(newwaterwheel.tanks.length).to.equal(0)
         done()
     })

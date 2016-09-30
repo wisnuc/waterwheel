@@ -151,9 +151,8 @@ router.post('/*/waterwheel*',(req,res)=>{
     if(!req.body.data)return res.status(406).json('need request data')
     if(uuids.length>3)return res.status(400).json('')
     if(uuids.length===3){
-    	let waterwheel=storage.getWaterWheel(uuids[2])
-    	let newtank=waterwheel.registerTank(req.body.data)
-    	let newres=adapter.toServer(uuids[0],uuids[2],newtank.uuid)
+    	let newrequest=storage.createNewRequest(uuids[2],req.body.data)
+    	let newres=adapter.toServer(uuids[0],uuids[2],newrequest.uuid)
       try{
   	    socketmanage.sendMessage(uuids[0],'resourceadded',newres)
       }
