@@ -3,6 +3,9 @@ console.log(111)
 socket.emit('register',"111")
 
 socket.on('register1', function(msg){
-  console.log(333)
-  console.log(msg)
+	socket.emit('statuson',msg)
+});
+
+socket.on('resourceadded', function(msg){
+	console.log(msg)
 });
