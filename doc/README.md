@@ -1,5 +1,8 @@
 ### Sample
 
+url format:  hostip/nas/(nasuuid)/waterwheel/(waterwheeluuid)/(requestuuid)/(resourceuuid)<p>
+example:  192.168.5.132/nas/1111/waterwheel/2222/3333/4444<p>
+
 ***
 
 + **Check Connection Status for NAS & Cloud**<p>
@@ -17,3 +20,4 @@
     Failed:
     "nas not found"
     ```
+
