@@ -40,7 +40,7 @@ example:  192.168.5.132/nas/1111/files/2222/3333/4444<p>
     "fd094596-d095-4a8a-a233-f408498897c5"
 
     Failed:
-    "???"
+    "nas not found"
     ```
 
 + **Create A New Request for Cloud**<p>
@@ -59,6 +59,7 @@ example:  192.168.5.132/nas/1111/files/2222/3333/4444<p>
         "resource": [
             {
                 "id": "ff66e574-f0bc-4d3f-bed8-90baee45e5a9",
+                "status": "ready",
                 "resource": "2a9b0963652a7647780dc13fd37d160720421ce8181dadd530e6a16203832f97"
             }
         ]
@@ -68,13 +69,15 @@ example:  192.168.5.132/nas/1111/files/2222/3333/4444<p>
         "resource": [
             {
                 "id": "ff66e574-f0bc-4d3f-bed8-90baee45e5a9",
+                "status": "ready",
                 "resource": "2a9b0963652a7647780dc13fd37d160720421ce8181dadd530e6a16203832f97"
             }
         ]
     }
 
     Failed:
-    "???"
+    "nas not found"
+    "need request data"
     ```
     
 + **Upload A File To Cloud**<p>
@@ -90,5 +93,6 @@ example:  192.168.5.132/nas/1111/files/2222/3333/4444<p>
     "success"
 
     Failed:
-    "???"
+    "digest is invalid"
+    "url is invalid"
     ```
