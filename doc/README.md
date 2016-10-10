@@ -43,7 +43,7 @@ example:  192.168.5.132/nas/1111/files/2222/3333/4444<p>
     "nas not found"
     ```
     
- + **Get All Infors With Specified LinkUUID**<p>
++ **Get All Infors With Specified LinkUUID**<p>
   - Format<p>
     `GET /nas/UUID/waterwheel/LinkUUID`<p>
   
