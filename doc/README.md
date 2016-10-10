@@ -153,12 +153,44 @@ example:  192.168.5.132/nas/1111/files/2222/3333/4444<p>
   
   - Example request<p>
     `PATCH 192.168.5.132/nas/456fe918-1872-4ec1-b4f8-c09b62b49d72/waterwheel/95ae4214-b7db-42b2-9dbe-00739425e005/2a0be8d8-5523-4a49-96b4-19f088367665`<p>
-    PS: Have to contain `status` field which includes ready | done | error.
+    PS: Have to contain `status` field which includes `ready` | `done` | `error`.
   
   - Example response<p>
     ```
     Success:
     "request updated"
+
+    Failed:
+    "???"
+    ```
+
++ **Delete Tank**<p>
+  - Format<p>
+    `DELETE /nas/UUID/waterwheel/LinkUUID/tankID`<p>
+  
+  - Example request<p>
+    `DELETE 192.168.5.132/nas/456fe918-1872-4ec1-b4f8-c09b62b49d72/waterwheel/95ae4214-b7db-42b2-9dbe-00739425e005/2a0be8d8-5523-4a49-96b4-19f088367665`<p>
+  
+  - Example response<p>
+    ```
+    Success:
+    "delete request success"
+
+    Failed:
+    "???"
+    ```
+    
++ **Delete Link**<p>
+  - Format<p>
+    `DELETE /nas/UUID/waterwheel/LinkUUID`<p>
+  
+  - Example request<p>
+    `DELETE 192.168.5.132/nas/456fe918-1872-4ec1-b4f8-c09b62b49d72/waterwheel/95ae4214-b7db-42b2-9dbe-00739425e005`<p>
+  
+  - Example response<p>
+    ```
+    Success:
+    "delete waterwheel success"
 
     Failed:
     "???"
