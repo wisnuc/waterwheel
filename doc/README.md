@@ -199,12 +199,14 @@
   - Example response<p>
     Success:
       ```
-      "???"
+      "success"
       ```
 
     Failed:
       ```
-      "???"
+      "File was not found on this server."
+      "file not found"
+      "url is invalid"
       ```
 
 
