@@ -35,7 +35,7 @@
       "nas not found"
       ```
 
-+ **Create A New WaterWheelUUID Link for Nas & Cloud**<p>
++ **Create A New Cloud Link UUID (WaterWheelUUID) for Nas & Cloud**<p>
   - Format<p>
     `POST /nas/(nasuuid)`<p>
   
@@ -54,7 +54,7 @@
       "nas not found"
       ```
     
-+ **Get All Infors With Specified WaterWheelUUID**<p>
++ **Get All Infors With Specified Cloud Link UUID (WaterWheelUUID)**<p>
   - Format<p>
     `GET /nas/(nasuuid)/waterwheel/(waterwheeluuid)`<p>
   
