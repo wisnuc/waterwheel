@@ -180,7 +180,7 @@
 
     Failed:
       ```
-      "???"
+      "File was not found on this server"
       ```
 
 + **Set Tank Status**<p>
@@ -213,11 +213,13 @@
     Success:
       ```
       "delete request success"
+      "delete waterwheel success"
       ```
 
     Failed:
       ```
-      "???"
+      "nas not found"
+      "waterwheel not found"
       ```
     
 + **Delete Link**<p>
@@ -231,9 +233,11 @@
     Success:
       ```
       "delete waterwheel success"
+      "delete request success"
       ```
 
     Failed:
       ```
-      "File was not found on this server."
+      "waterwheel not found"
+      "nas not found"
       ```
