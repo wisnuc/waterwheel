@@ -1,19 +1,23 @@
-### Sample
-requests<p>
+# WaterWheel's RESTFUL API
 
-url format:  hostip/nas/(nasuuid)/waterwheel/(waterwheeluuid)/(requestuuid)/(resourceuuid)<p>
-example:  192.168.5.132/nas/1111/waterwheel/2222/3333/4444<p>
+***
 
-files<p>
+### Preliminaries
 
-url format:  hostip/nas/(nasuuid)/files/(waterwheeluuid)/(requestuuid)/(resourceuuid)<p>
-example:  192.168.5.132/nas/1111/files/2222/3333/4444<p>
++ url format: <p>
+  - Request Related<p>
+    `(hostip)/nas/(nasuuid)/waterwheel/(waterwheeluuid)/(requestuuid)/(resourceuuid)`<p>
+    example: `192.168.5.132/nas/456fe918-1872-4ec1-b4f8-c09b62b49d72/waterwheel/fd094596-d095-4a8a-a233-f408498897c5/c28c8876-6288-4442-9507-891a916d5214/ff66e574-f0bc-4d3f-bed8-90baee45e5a9`<p>
+
+  - Files Related<p>
+    `(hostip)/nas/(nasuuid)/files/(waterwheeluuid)/(requestuuid)/(resourceuuid)`<p>
+    example: `192.168.5.132/nas/456fe918-1872-4ec1-b4f8-c09b62b49d72/files/fd094596-d095-4a8a-a233-f408498897c5/c28c8876-6288-4442-9507-891a916d5214/ff66e574-f0bc-4d3f-bed8-90baee45e5a9`<p>
 
 ***
 
 + **Check Connection Status for NAS & Cloud**<p>
   - Format<p>
-  `GET /nas/UUID`<p>
+  `GET /nas/(nasuuid)`<p>
   
   - Example request<p>
   `GET 192.168.5.132/nas/456fe918-1872-4ec1-b4f8-c09b62b49d72`<p>
@@ -29,7 +33,7 @@ example:  192.168.5.132/nas/1111/files/2222/3333/4444<p>
 
 + **Create A New Link for Nas & Cloud**<p>
   - Format<p>
-    `POST /nas/UUID`<p>
+    `POST /nas/(nasuuid)`<p>
   
   - Example request<p>
     `POST 192.168.5.132/nas/456fe918-1872-4ec1-b4f8-c09b62b49d72`<p>  
@@ -45,7 +49,7 @@ example:  192.168.5.132/nas/1111/files/2222/3333/4444<p>
     
 + **Get All Infors With Specified LinkUUID**<p>
   - Format<p>
-    `GET /nas/UUID/waterwheel/LinkUUID`<p>
+    `GET /nas/(nasuuid)/waterwheel/(waterwheeluuid)`<p>
   
   - Example request<p>
     `GET 192.168.5.132/nas/456fe918-1872-4ec1-b4f8-c09b62b49d72/waterwheel/fd094596-d095-4a8a-a233-f408498897c5`<p>
@@ -94,7 +98,7 @@ example:  192.168.5.132/nas/1111/files/2222/3333/4444<p>
 
 + **Create A New Request for Cloud**<p>
   - Format<p>
-    `POST /nas/UUID/waterwheel/linkUUID`<p>
+    `POST /nas/(nasuuid)/waterwheel/(waterwheeluuid)`<p>
   
   - Example request<p>
     `POST 192.168.5.132/nas/456fe918-1872-4ec1-b4f8-c09b62b49d72/waterwheel/fd094596-d095-4a8a-a233-f408498897c5`<p>
@@ -132,7 +136,7 @@ example:  192.168.5.132/nas/1111/files/2222/3333/4444<p>
     
 + **Upload A File To Cloud**<p>
   - Format<p>
-    `POST /nas/UUID/files/linkUUID/tankID/tankResourceID`<p>
+    `POST /nas/(nasuuid)/files/(waterwheeluuid)/(requestuuid)/(resourceuuid)`<p>
   
   - Example request<p>
     `POST 192.168.5.132/nas/456fe918-1872-4ec1-b4f8-c09b62b49d72/files/fd094596-d095-4a8a-a233-f408498897c5/c28c8876-6288-4442-9507-891a916d5214/ff66e574-f0bc-4d3f-bed8-90baee45e5a9`<p>
@@ -149,7 +153,7 @@ example:  192.168.5.132/nas/1111/files/2222/3333/4444<p>
 
 + **Set Tank Status**<p>
   - Format<p>
-    `PATCH /nas/UUID/waterwheel/LinkUUID/tankID`<p>
+    `PATCH /nas/(nasuuid)/waterwheel/(waterwheeluuid)/(requestuuid)`<p>
   
   - Example request<p>
     `PATCH 192.168.5.132/nas/456fe918-1872-4ec1-b4f8-c09b62b49d72/waterwheel/95ae4214-b7db-42b2-9dbe-00739425e005/2a0be8d8-5523-4a49-96b4-19f088367665`<p>
@@ -166,7 +170,7 @@ example:  192.168.5.132/nas/1111/files/2222/3333/4444<p>
 
 + **Delete Tank**<p>
   - Format<p>
-    `DELETE /nas/UUID/waterwheel/LinkUUID/tankID`<p>
+    `DELETE /nas/(nasuuid)/waterwheel/(waterwheeluuid)/(requestuuid)`<p>
   
   - Example request<p>
     `DELETE 192.168.5.132/nas/456fe918-1872-4ec1-b4f8-c09b62b49d72/waterwheel/95ae4214-b7db-42b2-9dbe-00739425e005/2a0be8d8-5523-4a49-96b4-19f088367665`<p>
@@ -182,7 +186,7 @@ example:  192.168.5.132/nas/1111/files/2222/3333/4444<p>
     
 + **Delete Link**<p>
   - Format<p>
-    `DELETE /nas/UUID/waterwheel/LinkUUID`<p>
+    `DELETE /nas/(nasuuid)/waterwheel/(waterwheeluuid)`<p>
   
   - Example request<p>
     `DELETE 192.168.5.132/nas/456fe918-1872-4ec1-b4f8-c09b62b49d72/waterwheel/95ae4214-b7db-42b2-9dbe-00739425e005`<p>
