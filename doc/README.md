@@ -165,6 +165,24 @@
       "url is invalid"
       ```
 
++ **Download A File To Cloud**<p>
+  - Format<p>
+    `GET /nas/(nasuuid)/files/(waterwheeluuid)/(requestuuid)/(resourceuuid)`<p>
+  
+  - Example request<p>
+    `GET 192.168.5.132/nas/456fe918-1872-4ec1-b4f8-c09b62b49d72/files/fd094596-d095-4a8a-a233-f408498897c5/c28c8876-6288-4442-9507-891a916d5214/ff66e574-f0bc-4d3f-bed8-90baee45e5a9`<p>
+  
+  - Example response<p>
+    Success:
+      ```
+      "undefined"
+      ```
+
+    Failed:
+      ```
+      "???"
+      ```
+
 + **Set Tank Status**<p>
   - Format<p>
     `PATCH /nas/(nasuuid)/waterwheel/(waterwheeluuid)/(requestuuid)`<p>
