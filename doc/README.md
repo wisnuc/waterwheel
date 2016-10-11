@@ -2,6 +2,11 @@
 
 ***
 
+### Sequence Diagram
+<p>
+<img src="https://github.com/Amberact/waterwheel/blob/master/doc/waterwheel.jpg" alt="Sequence Diagram" align=center />
+<p>
+
 ### Preliminaries
 
 + url format: <p>
