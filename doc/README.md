@@ -102,7 +102,8 @@
 
     Failed:
       ```
-      "???"
+      "request not found"
+      "waterwheel not found"
       ```
 
 + **Create A New Request for Cloud**<p>
@@ -195,11 +196,12 @@
     Success:
       ```
       "request updated"
+      "resource updated"
       ```
 
     Failed:
       ```
-      "???"
+      "request not found"
       ```
 
 + **Delete Tank**<p>
