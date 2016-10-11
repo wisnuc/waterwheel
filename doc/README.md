@@ -165,7 +165,7 @@
       "url is invalid"
       ```
 
-+ **Download A File To Cloud**<p>
++ **Download A File From Cloud**<p>
   - Format<p>
     `GET /nas/(nasuuid)/files/(waterwheeluuid)/(requestuuid)/(resourceuuid)`<p>
   
