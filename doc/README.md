@@ -184,7 +184,26 @@
       "File was not found on this server"
       ```
 
-+ **Set Tank Status**<p>
++ **Delete A File From Cloud**<p>
+  - Format<p>
+    `DELETE /nas/(nasuuid)/files/(waterwheeluuid)/(requestuuid)/(resourceuuid)`<p>
+  
+  - Example request<p>
+    `DELETE 192.168.5.132/nas/456fe918-1872-4ec1-b4f8-c09b62b49d72/files/fd094596-d095-4a8a-a233-f408498897c5/c28c8876-6288-4442-9507-891a916d5214/ff66e574-f0bc-4d3f-bed8-90baee45e5a9`<p>
+  
+  - Example response<p>
+    Success:
+      ```
+      "???"
+      ```
+
+    Failed:
+      ```
+      "???"
+      ```
+
+
++ **Set Request Status**<p>
   - Format<p>
     `PATCH /nas/(nasuuid)/waterwheel/(waterwheeluuid)/(requestuuid)`<p>
   
@@ -204,7 +223,7 @@
       "request not found"
       ```
 
-+ **Delete Tank**<p>
++ **Delete Request**<p>
   - Format<p>
     `DELETE /nas/(nasuuid)/waterwheel/(waterwheeluuid)/(requestuuid)`<p>
   
@@ -224,7 +243,7 @@
       "waterwheel not found"
       ```
     
-+ **Delete Link**<p>
++ **Delete Cloud Link**<p>
   - Format<p>
     `DELETE /nas/(nasuuid)/waterwheel/(waterwheeluuid)`<p>
   
