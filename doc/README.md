@@ -15,6 +15,8 @@
 
 ***
 
+### Interface definition
+
 + **Check Connection Status for NAS & Cloud**<p>
   - Format<p>
   `GET /nas/(nasuuid)`<p>
@@ -31,12 +33,13 @@
     "nas not found"
     ```
 
-+ **Create A New Link for Nas & Cloud**<p>
++ **Create A New WaterWheelUUID Link for Nas & Cloud**<p>
   - Format<p>
     `POST /nas/(nasuuid)`<p>
   
   - Example request<p>
-    `POST 192.168.5.132/nas/456fe918-1872-4ec1-b4f8-c09b62b49d72`<p>  
+    `POST 192.168.5.132/nas/456fe918-1872-4ec1-b4f8-c09b62b49d72`<p>
+    PS: `Server will return a new UUID as waterwheeluuid.`<p>
   
   - Example response<p>
     ```
@@ -47,7 +50,7 @@
     "nas not found"
     ```
     
-+ **Get All Infors With Specified LinkUUID**<p>
++ **Get All Infors With Specified WaterWheelUUID**<p>
   - Format<p>
     `GET /nas/(nasuuid)/waterwheel/(waterwheeluuid)`<p>
   
@@ -59,36 +62,36 @@
     Success:
     [
         {
-            "uuid": "6db24029-547b-4f6c-ae20-088c10c1df33",
-            "timestamp": 1476088155207,
-            "tanks": [
+          "uuid": "6db24029-547b-4f6c-ae20-088c10c1df33",
+          "timestamp": 1476088155207,
+          "tanks": [
+            {
+              "uuid": "7de5450f-f778-40df-b20c-557acca0330f",
+              "status": "done",
+              "resource": [
                 {
-                    "uuid": "7de5450f-f778-40df-b20c-557acca0330f",
-                    "status": "done",
-                    "resource": [
-                        {
-                            "id": "1fb7928a-c90d-461b-91d7-d081d9d25493",
-                            "resource": "2a9b0963652a7647780dc13fd37d160720421ce8181dadd530e6a16203832f97"
-                        }
-                    ]
+                    "id": "1fb7928a-c90d-461b-91d7-d081d9d25493",
+                    "resource": "2a9b0963652a7647780dc13fd37d160720421ce8181dadd530e6a16203832f97"
                 }
-            ]
+              ]
+            }
+          ]
         },
         {
-            "uuid": "4708a3de-ac9a-4bc8-ac14-dc0b1c8e110b",
-            "timestamp": 1476088265939,
-            "tanks": [
+          "uuid": "4708a3de-ac9a-4bc8-ac14-dc0b1c8e110b",
+          "timestamp": 1476088265939,
+          "tanks": [
+            {
+              "uuid": "282436c0-0229-4c74-9814-457398c61bb2",
+              "status": "done",
+              "resource": [
                 {
-                    "uuid": "282436c0-0229-4c74-9814-457398c61bb2",
-                    "status": "done",
-                    "resource": [
-                        {
-                            "id": "27722bb9-3627-4fea-a53c-4fe149d41582",
-                            "resource": "2a9b0963652a7647780dc13fd37d160720421ce8181dadd530e6a16203832f97"
-                        }
-                    ]
+                    "id": "27722bb9-3627-4fea-a53c-4fe149d41582",
+                    "resource": "2a9b0963652a7647780dc13fd37d160720421ce8181dadd530e6a16203832f97"
                 }
-            ]
+              ]
+            }
+          ]
         },
         ...
 
@@ -102,31 +105,32 @@
   
   - Example request<p>
     `POST 192.168.5.132/nas/456fe918-1872-4ec1-b4f8-c09b62b49d72/waterwheel/fd094596-d095-4a8a-a233-f408498897c5`<p>
-    PS: Have to contain `data` field which to tell Cloud what to do next.
+    PS: Have to contain `data` field which to tell Cloud what to do next, just like `{'data':["2a9b0963652a7647780dc13fd37d160720421ce8181dadd530e6a16203832f97"]}`, it tells server to prepare for upload file.
   
   - Example response<p>
     ```
     Success:
     {
-        "uuid": "c28c8876-6288-4442-9507-891a916d5214",
-        "status": "ready",
-        "resource": [
-            {
-                "id": "ff66e574-f0bc-4d3f-bed8-90baee45e5a9",
-                "status": "ready",
-                "resource": "2a9b0963652a7647780dc13fd37d160720421ce8181dadd530e6a16203832f97"
-            }
-        ]
-    }{
-        "uuid": "c28c8876-6288-4442-9507-891a916d5214",
-        "status": "ready",
-        "resource": [
-            {
-                "id": "ff66e574-f0bc-4d3f-bed8-90baee45e5a9",
-                "status": "ready",
-                "resource": "2a9b0963652a7647780dc13fd37d160720421ce8181dadd530e6a16203832f97"
-            }
-        ]
+      "uuid": "c28c8876-6288-4442-9507-891a916d5214",
+      "status": "ready",
+      "resource": [
+        {
+            "id": "ff66e574-f0bc-4d3f-bed8-90baee45e5a9",
+            "status": "ready",
+            "resource": "2a9b0963652a7647780dc13fd37d160720421ce8181dadd530e6a16203832f97"
+        }
+      ]
+    }
+    {
+      "uuid": "c28c8876-6288-4442-9507-891a916d5214",
+      "status": "ready",
+      "resource": [
+        {
+            "id": "ff66e574-f0bc-4d3f-bed8-90baee45e5a9",
+            "status": "ready",
+            "resource": "2a9b0963652a7647780dc13fd37d160720421ce8181dadd530e6a16203832f97"
+        }
+      ]
     }
 
     Failed:
